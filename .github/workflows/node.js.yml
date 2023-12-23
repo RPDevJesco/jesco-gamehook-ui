@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [14.x] # Use a compatible Node.js version
+        node-version: [21.2.0] # Use a compatible Node.js version
 
     steps:
       - uses: actions/checkout@v3
