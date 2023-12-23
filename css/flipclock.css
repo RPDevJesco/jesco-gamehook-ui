@@ -1,0 +1,90 @@
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .flip-clock {
+        max-width: 100%; /* Adjust the maximum width as needed */
+        min-width: 10%;
+    }
+}
+
+.front {
+    justify-content: center;
+    bottom: 12px;
+}
+
+b {
+    display: inline-block;
+    vertical-align: top;
+    margin: 2px 5px;
+}
+
+.flip-clock {
+    width: 390px;
+    font-size: 60px;
+    color: #fff;
+    background: indianred;
+    display: inline-block;
+    border-radius: 2px;
+    border: 10px solid #000;
+}
+
+.card-portion {
+    perspective: 200px;
+    display: inline-block;
+    margin: 0 5px;
+    position: relative;
+}
+
+.card-background {
+    background: black;
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.card-background::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #fff;
+    top: 50%;
+}
+
+.panel {
+    position: relative;
+    display: inline-block;
+    height: 30px; /* location of numbers */
+    width: 42px;
+    text-align: center;
+}
+
+.panel.top {
+    z-index: 1;
+}
+
+.panel.top.flip {
+    animation: flipTop 0.1s linear forwards;
+}
+
+.panel span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    font-family: monospace;
+    text-align: center;
+    backface-visibility: hidden;
+}
+
+@keyframes flipTop {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(-360deg);
+    }
+}

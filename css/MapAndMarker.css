@@ -1,0 +1,36 @@
+.map-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    height: 75%;
+    left: 60px;
+    top: 40px;
+    position: relative;
+}
+
+.player-marker {
+    position: absolute;
+    width: 15px/* specify the width of the marker */;
+    height: 15px/* specify the height of the marker */;
+    background-color: red;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
