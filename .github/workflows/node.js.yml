@@ -30,7 +30,11 @@ jobs:
     # Electron specific steps (install, package, etc.)
     - name: Install Electron
       run: npm install electron
-    # If you have different packaging steps for each OS, use conditionals
+    - name: Install Electron Forge
+      run: npm install --save-dev @electron-forge/cli
+    - name: import Forge
+      run: npx electron-forge import
+      # If you have different packaging steps for each OS, use conditionals
     - name: Package App for Ubuntu
       if: matrix.os == 'ubuntu-latest'
       run: npm run electron-forge make
