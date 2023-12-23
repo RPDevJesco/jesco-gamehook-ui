@@ -9,7 +9,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
-  "author": "Jane Doe",
+  "author": "GameDevMadeEasy",
   "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "^7.2.0",
