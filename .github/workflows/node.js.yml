@@ -11,9 +11,10 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false
       matrix:
-        os: [windows-latest]
-        node-version: [21.2.0] # Use a compatible Node.js version
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [21.2.0]
 
     steps:
       - uses: actions/checkout@v3
@@ -28,8 +29,8 @@ jobs:
         run: npm run build --if-present
       - name: Package App
         run: npm run make
-      # Upload artifacts (adjust path as needed)
-      - uses: actions/upload-artifact@v2
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
         with:
           name: packaged-app-${{ matrix.os }}
-          path: out/make  # Update this path based on your Electron Forge output
+          path: out/  # Update this path based on your Electron Forge output
