@@ -1,7 +1,7 @@
 {
   "name": "jesco-gamehook-ui",
-  "version": "1.0.0",
-  "description": "O",
+  "version": "1.0.1",
+  "description": "Gamehook UI for playing Pokemon Red/Blue/Yellow version",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
