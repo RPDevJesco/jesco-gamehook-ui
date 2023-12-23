@@ -1,0 +1,49 @@
+name: Electron App CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [v21.2.0]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+    - name: Build
+      run: npm run build --if-present
+    - name: Test
+      run: npm test
+    # Electron specific steps (install, package, etc.)
+    - name: Install Electron
+      run: npm install electron
+    # If you have different packaging steps for each OS, use conditionals
+    - name: Package App for Ubuntu
+      if: matrix.os == 'ubuntu-latest'
+      run: npm run electron-forge make
+    - name: Package App for Windows
+      if: matrix.os == 'windows-latest'
+      run: npm run electron-forge make
+    - name: Package App for macOS
+      if: matrix.os == 'macos-latest'
+      run: npm run electron-forge make
+    # Upload artifacts if necessary
+    - uses: actions/upload-artifact@v2
+      with:
+        name: packaged-app-${{ matrix.os }}
+        path: out/make
