@@ -12,7 +12,6 @@
   "author": "GameDevMadeEasy",
   "license": "MIT",
   "devDependencies": {
-    "rcedit": "^latest",
     "@electron-forge/cli": "^7.2.0",
     "@electron-forge/maker-deb": "^7.2.0",
     "@electron-forge/maker-rpm": "^7.2.0",
@@ -20,7 +19,8 @@
     "@electron-forge/maker-zip": "^7.2.0",
     "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
     "electron": "29.0.0-alpha.1",
-    "install": "^0.13.0"
+    "install": "^0.13.0",
+    "rcedit": "^2.0.0"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
