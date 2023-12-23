@@ -1,44 +1,56 @@
+const path = require('path');
 module.exports = {
   packagerConfig: {
     asar: true,
-    // additional packager configuration options
+    icon: path.join(process.cwd(), 'main', 'build', 'icon'),
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        // configuration options for Windows Squirrel
-      },
-    },
-    {
-      name: '@electron-forge/maker-zip',
-      platforms: ['darwin'], // This will create a zip file for macOS
+        bin: 'Electron Starter'
+      }
     },
     {
       name: '@electron-forge/maker-dmg',
       config: {
-        // configuration options for macOS DMG
+        bin: 'Electron Starter'
       },
-      platforms: ['darwin'], // This will create a DMG file for macOS
     },
     {
       name: '@electron-forge/maker-deb',
       config: {
-        // configuration options for Debian packages
-      },
+        bin: 'Electron Starter',
+        options: {
+          icon: path.join(process.cwd(), 'main', 'build', 'icon.png'),
+        },
+      }
     },
     {
       name: '@electron-forge/maker-rpm',
       config: {
-        // configuration options for RPM packages
-      },
-    },
+        bin: 'Electron Starter',
+        icon: path.join(process.cwd(), 'main', 'build', 'icon.png'),
+      }
+    }
   ],
   plugins: [
     {
       name: '@electron-forge/plugin-auto-unpack-natives',
-      config: {},
-    },
+      config: {}
+    }
   ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'delimitertech',
+          name: 'electron-starter'
+        },
+        prerelease: true
+      }
+    }
+  ]
 };

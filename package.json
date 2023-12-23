@@ -1,14 +1,16 @@
 {
   "name": "jesco-gamehook-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Gamehook UI for playing Pokemon Red/Blue/Yellow version",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
+  "productName": "OpenSource Gamehook Pokemon UI",
   "author": "GameDevMadeEasy",
   "license": "MIT",
   "devDependencies": {
@@ -19,10 +21,9 @@
     "@electron-forge/maker-squirrel": "^7.2.0",
     "@electron-forge/maker-zip": "^7.2.0",
     "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
+    "@electron-forge/publisher-github": "^7.2.0",
     "electron": "29.0.0-alpha.1",
-    "electron-builder": "^23.0.3",
     "electron-packager": "^16.0.0",
-    "electron-winstaller": "^5.0.0",
     "install": "^0.13.0",
     "rcedit": "^2.0.0"
   },
