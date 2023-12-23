@@ -27,7 +27,7 @@ jobs:
       - name: Build (if present)
         run: npm run build --if-present
       - name: List rcedit directory contents
-        run: ls D:\a\jesco-gamehook-ui\jesco-gamehook-ui\node_modules\rcedit\bin\
+        run: ls D:\a\jesco-gamehook-ui\jesco-gamehook-ui\node_modules\
       - name: Package App
         run: npm run make
       # Upload artifacts (adjust path as needed)
